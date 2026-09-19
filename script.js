@@ -8,9 +8,9 @@
    - खाली ("") छोड़ेंगे तो 
 ------------------------------------------------- */
 const SETTINGS = {
-  phone: "",      // Call 8896380565
-  whatsapp: "",   // WhatsApp वाला नंबर (8896380565)
-  email: ""       // आपका email sandeepailearn2012@gmail.com
+  phone: "8896380565",     
+  whatsapp: "8896380565", 
+  email: "sandeepailearn2012@gmail.com"      
 };
 /* --------------------------------------------------- */
 
