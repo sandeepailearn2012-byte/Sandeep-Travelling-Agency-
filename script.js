@@ -8,9 +8,9 @@
    - खाली ("") छोड़ेंगे तो website पर [ADD YOUR ...] ही दिखेगा
 --------------------------------------------------- */
 const SETTINGS = {
-  phone: "",      // Call वाला नंबर, जैसे "XXXXXXXXXX" की जगह अपना 10 अंकों का नंबर
-  whatsapp: "",   // WhatsApp वाला नंबर (10 अंक)
-  email: ""       // आपका email
+  phone: "",      // Call 8896380565
+  whatsapp: "",   // WhatsApp वाला नंबर (8896380565)
+  email: ""       // आपका email sandeepailearn2012@gmail.com
 };
 /* --------------------------------------------------- */
 
