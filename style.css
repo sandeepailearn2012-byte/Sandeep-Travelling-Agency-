@@ -1,0 +1,301 @@
+/* =====================================================
+   Sandeep Travelling Agency – style.css
+   Mobile-first: पहले छोटी screen, फिर बड़ी screen
+   ===================================================== */
+
+/* ---------- रंग और font (सब यहाँ से बदल सकते हैं) ---------- */
+:root {
+  --ink: #0A2A4A;          /* गहरा नीला – मुख्य रंग */
+  --ink-2: #14416D;
+  --saffron: #F28A1E;      /* केसरिया – बटन */
+  --saffron-deep: #B85600;
+  --sky: #EAF1F8;
+  --paper: #FAFBFC;
+  --text: #1B2733;
+  --muted: #55677A;
+  --line: #D3DEE9;
+  --wa: #0F7A3F;           /* WhatsApp हरा */
+  --danger: #B3261E;
+  --font: "Poppins", "Noto Sans Devanagari", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+/* ---------- Basic reset ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--paper);
+}
+h1, h2, h3, h4, p, ul, ol, dl, dd { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--saffron); outline-offset: 2px; }
+
+.wrap { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+.skip { position: absolute; left: -999px; top: 8px; z-index: 100; background: #fff; padding: 8px 12px; border-radius: 6px; }
+.skip:focus { left: 8px; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+/* ---------- बटन ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 48px; padding: 0 22px;
+  border: 2px solid transparent; border-radius: 10px;
+  font: 600 1rem/1.2 var(--font);
+  text-decoration: none; text-align: center; cursor: pointer;
+}
+.btn-small { min-height: 44px; padding: 0 16px; font-size: .9rem; }
+.btn-primary { background: var(--saffron); color: var(--ink); }
+.btn-primary:hover { background: #FFA03D; }
+.btn-wa { background: var(--wa); color: #fff; }
+.btn-wa:hover { background: #0B6633; }
+.btn-outline-light { border-color: rgba(255, 255, 255, .75); color: #fff; }
+.btn-outline-light:hover { background: rgba(255, 255, 255, .12); }
+.btn-outline { border-color: var(--ink); color: var(--ink); background: transparent; }
+.btn-outline:hover { background: var(--ink); color: #fff; }
+
+/* ---------- Navbar ---------- */
+.site-header { position: sticky; top: 0; z-index: 40; background: #fff; border-bottom: 1px solid var(--line); }
+.bar { display: flex; align-items: center; gap: 10px; min-height: 64px; }
+.brand {
+  display: flex; align-items: center; gap: 10px; margin-right: auto;
+  text-decoration: none; color: var(--ink); font-weight: 700; font-size: .9rem; line-height: 1.2;
+}
+.brand-mark {
+  display: grid; place-items: center; width: 38px; height: 38px; flex: none;
+  border-radius: 8px; background: var(--ink); color: var(--saffron); font-size: 1.2rem;
+}
+.menu-toggle {
+  width: 44px; height: 44px; border: 1.5px solid var(--line); border-radius: 10px;
+  background: #fff; color: var(--ink); font-size: 1.3rem; cursor: pointer;
+}
+.nav {
+  display: none; position: absolute; left: 0; right: 0; top: 100%;
+  background: #fff; border-bottom: 1px solid var(--line); padding: 4px 20px 12px;
+}
+.nav.open { display: block; }
+.nav a { display: block; padding: 12px 0; border-bottom: 1px solid var(--sky); text-decoration: none; font-weight: 500; }
+
+@media (min-width: 860px) {
+  .menu-toggle { display: none; }
+  .nav { display: flex; position: static; gap: 24px; padding: 0; border: 0; background: none; }
+  .nav a { padding: 0; border: 0; }
+  .nav a:hover { color: var(--saffron-deep); }
+  .brand { font-size: 1rem; }
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  padding: 48px 0 44px;
+  color: #fff;
+  background-color: var(--ink);
+  background-image: radial-gradient(rgba(255, 255, 255, .08) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+.hero h1 {
+  font-size: clamp(2.3rem, 9vw, 4rem);
+  line-height: 1.1; letter-spacing: -.02em; font-weight: 700;
+  max-width: 14ch; text-wrap: balance;
+}
+.hero-sub { margin-top: 14px; max-width: 34rem; color: rgba(255, 255, 255, .85); font-size: 1.05rem; }
+
+/* सेवाओं की "route" पट्टी: Train • Flight • Bus • Hotel • Tour Packages */
+.route { position: relative; display: flex; justify-content: space-between; gap: 4px; margin-top: 32px; max-width: 620px; }
+.route::before {
+  content: ""; position: absolute; left: 10%; right: 10%; top: 22px;
+  border-top: 2px dashed rgba(255, 255, 255, .4);
+}
+.route li { position: relative; flex: 1; text-align: center; font-size: .78rem; line-height: 1.3; }
+.route .stop {
+  display: grid; place-items: center; width: 44px; height: 44px; margin: 0 auto 6px;
+  border-radius: 50%; background: var(--ink-2); border: 2px solid rgba(255, 255, 255, .4); font-size: 1.2rem;
+}
+
+.hero-actions { display: flex; flex-direction: column; gap: 12px; margin-top: 32px; max-width: 420px; }
+@media (min-width: 640px) {
+  .hero { padding: 72px 0 64px; }
+  .hero-actions { flex-direction: row; flex-wrap: wrap; max-width: none; }
+}
+
+/* ---------- Sections ---------- */
+.section { padding: 56px 0; }
+.section-paper { background: var(--paper); }
+.section-white { background: #fff; }
+.section-head { max-width: 40rem; margin-bottom: 28px; }
+.section-head h2, .enquiry-text h2 {
+  font-size: clamp(1.5rem, 5vw, 2.1rem); line-height: 1.3; color: var(--ink); font-weight: 700;
+}
+.section-head p { margin-top: 8px; color: var(--muted); }
+
+/* ---------- Services ---------- */
+.services { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.svc { padding: 16px; background: #fff; border: 1px solid var(--line); border-radius: 10px; }
+.svc-icon { display: grid; place-items: center; width: 44px; height: 44px; margin-bottom: 10px; border-radius: 10px; background: var(--sky); font-size: 1.4rem; }
+.svc h3 { font-size: .98rem; line-height: 1.3; color: var(--ink); }
+.svc p { margin-top: 4px; font-size: .86rem; line-height: 1.55; color: var(--muted); }
+@media (min-width: 720px) {
+  .services { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .svc { padding: 20px; }
+}
+
+/* ---------- Packages ---------- */
+.pkg-group + .pkg-group { margin-top: 32px; }
+.pkg-group > h3 { margin-bottom: 12px; font-size: 1.15rem; color: var(--ink); }
+.pkg-row {
+  display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory;
+  margin: 0 -20px; padding: 0 20px 12px;
+}
+.pkg {
+  flex: 0 0 210px; scroll-snap-align: start;
+  display: flex; flex-direction: column; gap: 12px;
+  padding-bottom: 16px; overflow: hidden;
+  background: #fff; border: 1px solid var(--line); border-radius: 10px;
+}
+.pkg p { padding: 0 16px; font-size: .88rem; line-height: 1.5; color: var(--muted); flex: 1; }
+.pkg .btn { margin: 0 16px; }
+.pkg-top { padding: 16px; color: #fff; background: var(--pkg-color, var(--ink)); }
+.pkg-top span { display: block; font-size: 1.6rem; line-height: 1.2; }
+.pkg-top h4 { margin-top: 4px; font-size: 1.05rem; line-height: 1.3; }
+.pkg-pilgrim { --pkg-color: var(--saffron-deep); }
+.pkg-honey { --pkg-color: #7A2E55; }
+.pkg-family { --pkg-color: #0F6B6B; }
+@media (min-width: 900px) {
+  .pkg-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); overflow: visible; margin: 0; padding: 0; }
+  .pkg { flex: none; }
+}
+
+/* ---------- Why choose us ---------- */
+.why { display: grid; gap: 20px; }
+.why > div { padding-left: 16px; border-left: 3px solid var(--saffron); }
+.why h3 { font-size: 1.05rem; color: var(--ink); }
+.why p { margin-top: 4px; color: var(--muted); }
+@media (min-width: 720px) { .why { grid-template-columns: repeat(2, 1fr); gap: 28px 40px; } }
+
+/* ---------- How it works ---------- */
+.steps { display: grid; gap: 20px; counter-reset: step; }
+.steps li { position: relative; padding-left: 52px; counter-increment: step; }
+.steps li::before {
+  content: counter(step); position: absolute; left: 0; top: 0;
+  display: grid; place-items: center; width: 38px; height: 38px;
+  border-radius: 50%; background: var(--ink); color: #fff; font-weight: 600;
+}
+.steps h3 { font-size: 1.05rem; color: var(--ink); }
+.steps p { margin-top: 2px; color: var(--muted); }
+@media (min-width: 900px) { .steps { grid-template-columns: repeat(4, 1fr); gap: 24px; } }
+
+/* ---------- Enquiry (ticket) ---------- */
+.enquiry { background: var(--ink); color: #fff; }
+.enquiry-grid { display: grid; gap: 28px; }
+.enquiry-text h2 { color: #fff; }
+.enquiry-text p { margin-top: 10px; color: rgba(255, 255, 255, .82); max-width: 30rem; }
+.ticket { position: relative; max-width: 520px; width: 100%; background: #fff; color: var(--text); border-radius: 14px; }
+.ticket-main { padding: 24px 20px 8px; }
+.ticket-stub { padding: 20px; }
+.ticket-stub .btn { width: 100%; }
+.ticket-cut { position: relative; border-top: 2px dashed var(--line); }
+.ticket-cut::before, .ticket-cut::after {
+  content: ""; position: absolute; top: -13px; width: 24px; height: 24px;
+  border-radius: 50%; background: var(--ink);   /* section के रंग जैसा = ticket का "कटाव" */
+}
+.ticket-cut::before { left: -12px; }
+.ticket-cut::after { right: -12px; }
+@media (min-width: 900px) {
+  .enquiry-grid { grid-template-columns: 1fr 1fr; align-items: center; gap: 56px; }
+  .ticket { justify-self: end; }
+}
+
+.field { margin-bottom: 16px; }
+.field label { display: block; margin-bottom: 6px; font-size: .9rem; font-weight: 500; color: var(--ink); }
+.field input, .field select, .field textarea {
+  width: 100%; min-height: 48px; padding: 0 14px;
+  font: 400 1rem var(--font); color: var(--text);
+  background: #fff; border: 1.5px solid var(--line); border-radius: 8px;
+}
+.field input:focus, .field select:focus, .field textarea:focus { border-color: var(--ink); outline: 3px solid rgba(242, 138, 30, .45); outline-offset: 0; }
+.field input[aria-invalid="true"], .field select[aria-invalid="true"], .field textarea[aria-invalid="true"] { border-color: var(--danger); }
+.field textarea { padding: 12px 14px; min-height: 110px; line-height: 1.5; resize: vertical; }
+.field-error { margin-top: 4px; font-size: .85rem; color: var(--danger); }
+
+/* ---------- Section के नीचे छोटा link-बटन ---------- */
+.section-cta { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--line); }
+.section-cta p { color: var(--muted); }
+
+/* ---------- अंदर के pages (Custom Tour / Booking Enquiry) ---------- */
+.page-title { padding: 36px 0 32px; color: #fff; background-color: var(--ink); background-image: radial-gradient(rgba(255, 255, 255, .08) 1px, transparent 1px); background-size: 22px 22px; }
+.page-title h1 { font-size: clamp(1.7rem, 6vw, 2.6rem); line-height: 1.25; font-weight: 700; }
+.page-title p { margin-top: 8px; max-width: 34rem; color: rgba(255, 255, 255, .85); }
+.form-page { padding: 32px 0 64px; background: var(--paper); }
+.form-card { max-width: 680px; margin: 0 auto; padding: 22px 18px 20px; background: #fff; border: 1px solid var(--line); border-radius: 14px; }
+.form-card .row { display: grid; gap: 0 16px; }
+.form-card .btn { width: 100%; margin-top: 4px; }
+.form-note { margin-top: 12px; font-size: .85rem; text-align: center; color: var(--muted); }
+.choice-set { margin: 0 0 18px; padding: 0; border: 0; }
+.choice-set legend { padding: 0; margin-bottom: 8px; font-size: .9rem; font-weight: 500; color: var(--ink); }
+.choices { display: flex; flex-wrap: wrap; gap: 10px; }
+.choice { position: relative; flex: 1 1 90px; }
+.choice input { position: absolute; opacity: 0; inset: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+.choice span { display: flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 12px; border: 1.5px solid var(--line); border-radius: 10px; font-weight: 600; color: var(--ink); background: #fff; }
+.choice input:checked + span { background: var(--ink); border-color: var(--ink); color: #fff; }
+.choice input:focus-visible + span { outline: 3px solid var(--saffron); outline-offset: 2px; }
+@media (min-width: 640px) {
+  .form-card { padding: 28px 28px 24px; }
+  .form-card .row { grid-template-columns: 1fr 1fr; }
+  .section-cta { flex-direction: row; align-items: center; gap: 16px; }
+}
+.nav a[aria-current="page"] { color: var(--saffron-deep); }
+
+/* ---------- FAQ ---------- */
+.faq-wrap { max-width: 760px; }
+details { border-bottom: 1px solid var(--line); }
+summary {
+  display: flex; justify-content: space-between; gap: 16px; align-items: center;
+  padding: 16px 0; cursor: pointer; list-style: none; font-weight: 600; color: var(--ink);
+}
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; font-size: 1.4rem; line-height: 1; color: var(--saffron-deep); }
+details[open] summary::after { content: "−"; }
+details p { padding: 0 0 16px; color: var(--muted); }
+
+/* ---------- Contact ---------- */
+.contact-list { display: grid; gap: 16px; margin-bottom: 24px; }
+.contact-list dt { font-size: .85rem; color: var(--muted); }
+.contact-list dd { font-weight: 600; color: var(--ink); overflow-wrap: anywhere; }
+.contact-actions { display: flex; flex-direction: column; gap: 12px; max-width: 360px; }
+@media (min-width: 720px) {
+  .contact-list { grid-template-columns: repeat(2, 1fr); }
+  .contact-actions { flex-direction: row; max-width: none; }
+}
+
+/* ---------- Footer ---------- */
+.site-footer { padding: 32px 0 96px; background: var(--ink); color: rgba(255, 255, 255, .9); }
+.footer-note { margin-top: 6px; font-size: .85rem; color: rgba(255, 255, 255, .7); }
+
+/* ---------- Floating WhatsApp बटन ---------- */
+.fab {
+  position: fixed; right: 16px; bottom: 16px; z-index: 50;
+  display: inline-flex; align-items: center; gap: 8px;
+  min-height: 52px; padding: 0 20px; border-radius: 999px;
+  background: var(--wa); color: #fff; font-weight: 600; text-decoration: none;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .28);
+}
+.fab:hover { background: #0B6633; }
+
+/* ---------- छोटा संदेश (toast) ---------- */
+.toast {
+  position: fixed; left: 16px; right: 16px; bottom: 84px; z-index: 60;
+  max-width: 420px; margin: 0 auto; padding: 12px 16px;
+  background: var(--ink); color: #fff; border-radius: 10px; font-size: .92rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .3);
+  opacity: 0; transform: translateY(8px); pointer-events: none;
+  transition: opacity .2s, transform .2s;
+}
+.toast.show { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .toast { transition: none; }
+}

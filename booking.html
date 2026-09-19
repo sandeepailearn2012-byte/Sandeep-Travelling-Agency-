@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ticket Booking Enquiry | Sandeep Travelling Agency, Sultanpur</title>
+  <meta name="description" content="ट्रेन, फ्लाइट या बस टिकट की enquiry भेजें। Sandeep Travelling Agency, Sultanpur, Uttar Pradesh. हमारी टीम WhatsApp या Call पर आपसे बात करेगी।">
+  <meta name="theme-color" content="#0A2A4A">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <a class="skip" href="#booking-form">Skip to form</a>
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="site-header">
+    <div class="wrap bar">
+      <a class="brand" href="index.html" aria-label="Sandeep Travelling Agency – Home">
+        <span class="brand-mark" aria-hidden="true">S</span>
+        <span>Sandeep<br>Travelling Agency</span>
+      </a>
+
+      <nav class="nav" id="menu" aria-label="Main menu">
+        <a href="index.html">Home</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#packages">Packages</a>
+        <a href="planner.html">Custom Tour</a>
+        <a href="booking.html" aria-current="page">Booking Enquiry</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+
+      <a class="btn btn-primary btn-small" href="index.html#contact" data-call>📞 Call Now</a>
+      <button class="menu-toggle" type="button" aria-label="Menu खोलें" aria-expanded="false" aria-controls="menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-title">
+      <div class="wrap">
+        <h1>Ticket Booking Enquiry</h1>
+        <p>ट्रेन, फ्लाइट या बस की जानकारी भरिए। हमारी टीम आपसे बात करके आगे बढ़ेगी।</p>
+      </div>
+    </section>
+
+    <section class="form-page">
+      <div class="wrap">
+        <form class="form-card" id="booking-form" data-enquiry="booking" novalidate>
+
+          <fieldset class="choice-set">
+            <legend>यात्रा का साधन</legend>
+            <div class="choices">
+              <label class="choice"><input type="radio" name="travelType" value="Train" checked><span>🚆 Train</span></label>
+              <label class="choice"><input type="radio" name="travelType" value="Flight"><span>✈️ Flight</span></label>
+              <label class="choice"><input type="radio" name="travelType" value="Bus"><span>🚌 Bus</span></label>
+            </div>
+          </fieldset>
+
+          <div class="row">
+            <div class="field">
+              <label for="b-from">कहाँ से (From)</label>
+              <input id="b-from" name="from" type="text" data-label="शहर का नाम" maxlength="60" required>
+              <p class="field-error" id="err-from" hidden></p>
+            </div>
+            <div class="field">
+              <label for="b-to">कहाँ तक (To)</label>
+              <input id="b-to" name="to" type="text" data-label="शहर का नाम" maxlength="60" required>
+              <p class="field-error" id="err-to" hidden></p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label for="b-date">यात्रा की तारीख</label>
+              <input id="b-date" name="journeyDate" type="date" data-label="तारीख" required>
+              <p class="field-error" id="err-journeyDate" hidden></p>
+            </div>
+            <div class="field">
+              <label for="b-pax">कितने यात्री</label>
+              <input id="b-pax" name="passengers" type="number" inputmode="numeric" min="1" max="50" value="1" data-label="यात्रियों की संख्या" required>
+              <p class="field-error" id="err-passengers" hidden></p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label for="b-name">आपका नाम</label>
+              <input id="b-name" name="name" type="text" data-label="नाम" autocomplete="name" maxlength="60" required>
+              <p class="field-error" id="err-name" hidden></p>
+            </div>
+            <div class="field">
+              <label for="b-mobile">मोबाइल नंबर</label>
+              <input id="b-mobile" name="mobile" type="tel" inputmode="numeric" data-kind="mobile" autocomplete="tel" maxlength="14" placeholder="10 अंकों का नंबर" required>
+              <p class="field-error" id="err-mobile" hidden></p>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="b-message">कोई और बात (ज़रूरी नहीं)</label>
+            <textarea id="b-message" name="message" maxlength="500" placeholder="जैसे: पसंदीदा समय, ट्रेन का नाम, क्लास"></textarea>
+            <p class="field-error" id="err-message" hidden></p>
+          </div>
+
+          <!-- Spam से बचाव: यह खाना इंसान को दिखता नहीं -->
+          <div class="hp" aria-hidden="true">
+            <label for="b-website">Website</label>
+            <input id="b-website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+
+          <button class="btn btn-wa" type="submit">Send Booking Enquiry</button>
+          <p class="form-note">Submit करने पर WhatsApp खुलेगा। यह website टिकट की enquiry लेती है। बुकिंग की पुष्टि हमारी टीम से बात होने के बाद होती है।</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p><strong>Sandeep Travelling Agency</strong> · Sultanpur, Uttar Pradesh</p>
+      <p class="footer-note">© <span id="year">2026</span> Sandeep Travelling Agency</p>
+    </div>
+  </footer>
+
+  <a class="fab" href="index.html#contact" data-whatsapp aria-label="WhatsApp पर बात करें">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 3h16a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/></svg>
+    <span>WhatsApp</span>
+  </a>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Custom Tour Planner | Sandeep Travelling Agency, Sultanpur</title>
+  <meta name="description" content="अपने हिसाब का टूर प्लान बनवाएँ। कहाँ जाना है, कब जाना है, कितने लोग और बजट बताइए। Sandeep Travelling Agency, Sultanpur, Uttar Pradesh.">
+  <meta name="theme-color" content="#0A2A4A">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <a class="skip" href="#planner-form">Skip to form</a>
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="site-header">
+    <div class="wrap bar">
+      <a class="brand" href="index.html" aria-label="Sandeep Travelling Agency – Home">
+        <span class="brand-mark" aria-hidden="true">S</span>
+        <span>Sandeep<br>Travelling Agency</span>
+      </a>
+
+      <nav class="nav" id="menu" aria-label="Main menu">
+        <a href="index.html">Home</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#packages">Packages</a>
+        <a href="planner.html" aria-current="page">Custom Tour</a>
+        <a href="booking.html">Booking Enquiry</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+
+      <a class="btn btn-primary btn-small" href="index.html#contact" data-call>📞 Call Now</a>
+      <button class="menu-toggle" type="button" aria-label="Menu खोलें" aria-expanded="false" aria-controls="menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-title">
+      <div class="wrap">
+        <h1>Custom Tour Planner</h1>
+        <p>अपनी यात्रा की जानकारी भरिए। हम उसी के हिसाब से प्लान और कीमत बताएँगे।</p>
+      </div>
+    </section>
+
+    <section class="form-page">
+      <div class="wrap">
+        <form class="form-card" id="planner-form" data-enquiry="planner" novalidate>
+
+          <div class="row">
+            <div class="field">
+              <label for="p-name">आपका नाम</label>
+              <input id="p-name" name="name" type="text" data-label="नाम" autocomplete="name" maxlength="60" required>
+              <p class="field-error" id="err-name" hidden></p>
+            </div>
+            <div class="field">
+              <label for="p-mobile">मोबाइल नंबर</label>
+              <input id="p-mobile" name="mobile" type="tel" inputmode="numeric" data-kind="mobile" autocomplete="tel" maxlength="14" placeholder="10 अंकों का नंबर" required>
+              <p class="field-error" id="err-mobile" hidden></p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label for="p-start">कहाँ से जाना है</label>
+              <input id="p-start" name="startCity" type="text" data-label="शहर का नाम" maxlength="60" required>
+              <p class="field-error" id="err-startCity" hidden></p>
+            </div>
+            <div class="field">
+              <label for="p-dest">कहाँ जाना है</label>
+              <input id="p-dest" name="destination" type="text" data-label="जाने की जगह" maxlength="80" placeholder="जैसे: Ayodhya, Goa" required>
+              <p class="field-error" id="err-destination" hidden></p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label for="p-date">यात्रा की तारीख</label>
+              <input id="p-date" name="travelDate" type="date" data-label="तारीख" required>
+              <p class="field-error" id="err-travelDate" hidden></p>
+            </div>
+            <div class="field">
+              <label for="p-type">यात्रा का प्रकार</label>
+              <select id="p-type" name="travelType" data-label="यात्रा का प्रकार" required>
+                <option value="">चुनें</option>
+                <option>Pilgrimage (तीर्थ)</option>
+                <option>Honeymoon</option>
+                <option>Family Tour</option>
+                <option>Corporate Travel</option>
+                <option>Holiday</option>
+                <option>Group / Students</option>
+                <option>Other</option>
+              </select>
+              <p class="field-error" id="err-travelType" hidden></p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label for="p-adults">बड़े (Adults)</label>
+              <input id="p-adults" name="adults" type="number" inputmode="numeric" min="1" max="50" value="1" data-label="बड़ों की संख्या" required>
+              <p class="field-error" id="err-adults" hidden></p>
+            </div>
+            <div class="field">
+              <label for="p-children">बच्चे (Children)</label>
+              <input id="p-children" name="children" type="number" inputmode="numeric" min="0" max="50" value="0">
+              <p class="field-error" id="err-children" hidden></p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label for="p-budget">बजट (ज़रूरी नहीं)</label>
+              <input id="p-budget" name="budget" type="text" maxlength="40" placeholder="अंदाज़ा बता सकते हैं">
+              <p class="field-error" id="err-budget" hidden></p>
+            </div>
+            <div class="field">
+              <label for="p-hotel">होटल की पसंद (ज़रूरी नहीं)</label>
+              <select id="p-hotel" name="hotel">
+                <option value="">चुनें</option>
+                <option>Budget</option>
+                <option>3 Star</option>
+                <option>4 Star</option>
+                <option>5 Star</option>
+                <option>आप सुझाइए</option>
+              </select>
+              <p class="field-error" id="err-hotel" hidden></p>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="p-message">कोई और बात (ज़रूरी नहीं)</label>
+            <textarea id="p-message" name="message" maxlength="500" placeholder="जैसे: बुज़ुर्ग साथ में हैं, शाकाहारी खाना चाहिए"></textarea>
+            <p class="field-error" id="err-message" hidden></p>
+          </div>
+
+          <!-- Spam से बचाव: यह खाना इंसान को दिखता नहीं -->
+          <div class="hp" aria-hidden="true">
+            <label for="p-website">Website</label>
+            <input id="p-website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+
+          <button class="btn btn-wa" type="submit">WhatsApp पर Plan Request भेजें</button>
+          <p class="form-note">Submit करने पर WhatsApp खुलेगा। यह enquiry है, बुकिंग की पुष्टि हमारी टीम से बात होने के बाद होती है।</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p><strong>Sandeep Travelling Agency</strong> · Sultanpur, Uttar Pradesh</p>
+      <p class="footer-note">© <span id="year">2026</span> Sandeep Travelling Agency</p>
+    </div>
+  </footer>
+
+  <a class="fab" href="index.html#contact" data-whatsapp aria-label="WhatsApp पर बात करें">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 3h16a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/></svg>
+    <span>WhatsApp</span>
+  </a>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
