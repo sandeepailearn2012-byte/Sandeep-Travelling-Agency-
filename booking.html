@@ -103,7 +103,28 @@
             <textarea id="b-message" name="message" maxlength="500" placeholder="जैसे: पसंदीदा समय, ट्रेन का नाम, क्लास"></textarea>
             <p class="field-error" id="err-message" hidden></p>
           </div>
+          <div class="row">
+  <div class="field">
+    <label for="b-email">Email (ज़रूरी नहीं)</label>
+    <input id="b-email" name="email" type="email" data-label="Email" maxlength="80" autocomplete="email">
+    <p class="field-error" id="err-email" hidden></p>
+  </div>
+  <div class="field">
+    <label for="b-return">वापसी की तारीख (ज़रूरी नहीं)</label>
+    <input id="b-return" name="returnDate" type="date" data-label="वापसी की तारीख">
+    <p class="field-error" id="err-returnDate" hidden></p>
+  </div>
+</div>
 
+<div class="field">
+  <label for="b-food">खाने की पसंद (ज़रूरी नहीं)</label>
+  <select id="b-food" name="food">
+    <option value="">चुनें</option>
+    <option value="Veg">Veg</option>
+    <option value="Non-Veg">Non-Veg</option>
+  </select>
+  <p class="field-error" id="err-food" hidden></p>
+</div>
           <!-- Spam से बचाव: यह खाना इंसान को दिखता नहीं -->
           <div class="hp" aria-hidden="true">
             <label for="b-website">Website</label>
