@@ -13,6 +13,7 @@ Train, Flight, Bus, Hotel और Tour Packages की enquiry, WhatsApp/Call क
 
 बाकी pages (About, Services, Packages, Contact) अगले steps में जुड़ेंगे।
 
+
 ## Folder structure
 
 ```
@@ -26,6 +27,7 @@ sandeep-travelling-agency/
 ```
 
 ## Website कैसे चलाएँ
+Initial website setup
 
 `index.html` पर double-click करें। यह browser में खुल जाएगी। (Fonts के लिए internet चाहिए।)
 
